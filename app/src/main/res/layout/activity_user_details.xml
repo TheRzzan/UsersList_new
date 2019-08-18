@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/profileScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameText"
+                style="@style/HeaderProfileField"
+                android:layout_alignParentTop="true"
+                android:text="Имя Фамилия"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/yoText"
+                style="@style/ProfileField"
+                android:layout_below="@id/nameText"
+                android:text="@string/age" />
+
+            <TextView
+                android:id="@+id/emailText"
+                style="@style/FirstFieldInLine"
+                android:background="@drawable/ripple"
+                android:layout_below="@id/yoText"
+                android:text="@string/email" />
+
+            <TextView
+                android:id="@+id/emailClickable"
+                style="@style/SecondFieldInLine"
+                android:layout_toEndOf="@id/emailText"
+                android:layout_below="@id/yoText"/>
+
+            <TextView
+                android:id="@+id/phoneText"
+                style="@style/FirstFieldInLine"
+                android:layout_below="@id/emailText"
+                android:text="@string/phone" />
+
+            <TextView
+                android:id="@+id/phoneClickable"
+                style="@style/SecondFieldInLine"
+                android:layout_toEndOf="@id/phoneText"
+                android:layout_below="@id/emailText"/>
+
+            <TextView
+                android:id="@+id/companyText"
+                style="@style/ProfileField"
+                android:layout_below="@id/phoneText"
+                android:text="@string/company" />
+
+            <TextView
+                android:id="@+id/addressText"
+                style="@style/ProfileField"
+                android:layout_below="@id/companyText"
+                android:text="@string/address" />
+
+            <RelativeLayout
+                android:id="@+id/eyeColorLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressText">
+
+                <TextView
+                    android:id="@+id/eyeColorText"
+                    style="@style/ProfileField"
+                    android:text="@string/eye_color" />
+
+                <ImageView
+                    android:id="@+id/eyeColorImage"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/text_start_margin"
+                    android:layout_toEndOf="@id/eyeColorText"
+                    android:background="@drawable/shape_oval" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/favoriteFruitLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/eyeColorLayout">
+
+                <TextView
+                    android:id="@+id/favoriteFruitText"
+                    style="@style/ProfileField"
+                    android:text="@string/favourite_fruit" />
+
+                <ImageView
+                    android:id="@+id/favoriteFruitImage"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/text_start_margin"
+                    android:layout_toEndOf="@id/favoriteFruitText"
+                    android:background="@drawable/apple" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/locationText"
+                style="@style/FirstFieldInLine"
+                android:layout_below="@id/favoriteFruitLayout"
+                android:text="@string/geolocation" />
+
+            <TextView
+                android:id="@+id/locationClickable"
+                style="@style/SecondFieldInLine"
+                android:layout_below="@id/favoriteFruitLayout"
+                android:layout_toEndOf="@id/locationText"
+                />
+
+            <TextView
+                android:id="@+id/registeredText"
+                style="@style/ProfileField"
+                android:layout_below="@id/locationText"
+                android:text="@string/date_of_registration" />
+
+
+            <TextView
+                android:id="@+id/aboutText"
+                style="@style/ProfileField"
+                android:layout_below="@id/registeredText"
+                android:text="@string/about_user" />
+
+            <TextView
+                android:id="@+id/friendsText"
+                style="@style/HeaderProfileField"
+                android:layout_below="@id/aboutText"
+                android:text="@string/friends" />
+
+            <FrameLayout
+                android:id="@+id/usersFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_below="@id/friendsText"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="8dp"
+                android:scrollbars="vertical" />
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>

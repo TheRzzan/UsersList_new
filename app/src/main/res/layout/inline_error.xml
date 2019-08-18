@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/inline_error_title"
+            style="@style/TextView.Primary.Header"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Oops, Something went wrong!" />
+
+        <TextView
+            android:id="@+id/inline_error_body"
+            style="@style/TextView.Secondary"
+            android:layout_below="@+id/inline_error_title"
+            android:layout_centerHorizontal="true"
+            android:text="Please try again." />
+
+        <Button
+            android:id="@+id/inline_error_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inline_error_body"
+            android:layout_centerHorizontal="true"
+            android:text="@string/retry" />
+    </RelativeLayout>
+</RelativeLayout>

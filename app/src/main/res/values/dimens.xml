@@ -5,6 +5,10 @@
     <dimen name="text_size_secondary">14sp</dimen>
     <dimen name="text_size_header">17sp</dimen>
 
+    <!-- Text margin -->
+    <dimen name="text_top_margin">4dp</dimen>
+    <dimen name="text_start_margin">10dp</dimen>
+
     <!-- TextView margin -->
     <dimen name="header_margin_top">8dp</dimen>
     <dimen name="header_margin_bottom">4dp</dimen>
@@ -19,4 +23,7 @@
     <dimen name="field_line_margin_bottom">4dp</dimen>
     <dimen name="field_line_margin_start">10dp</dimen>
     <dimen name="field_line_margin_end">10dp</dimen>
+
+    <!-- FAButton margin -->
+    <dimen name="fab_margin">30dp</dimen>
 </resources>

@@ -16,4 +16,5 @@
     <string name="geolocation">Геолокация:&#160;</string>
     <string name="friends">Друзья:</string>
     <string name="network_data_load_fail">Не удалось загрузить данные по сети.</string>
+    <string name="retry">Обновить</string>
 </resources>
