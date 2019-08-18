@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -8,4 +8,72 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <!-- Text style -->
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+    <style name="Text.Primary">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Secondary">
+        <item name="android:textSize">@dimen/text_size_secondary</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="Text.Primary.Header">
+        <item name="android:textSize">@dimen/text_size_header</item>
+    </style>
+
+
+    <!-- TextView style -->
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Text</item>
+    </style>
+
+    <style name="TextView.Primary">
+        <item name="android:textAppearance">@style/Text.Primary</item>
+    </style>
+
+    <style name="TextView.Secondary">
+        <item name="android:textAppearance">@style/Text.Secondary</item>
+    </style>
+
+    <style name="TextView.Primary.Header">
+        <item name="android:textAppearance">@style/Text.Primary.Header</item>
+    </style>
+
+
+    <!-- Unique text styles -->
+
+    <style name="HeaderProfileField" parent="TextView.Primary.Header">
+        <item name="android:layout_marginTop">@dimen/header_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/header_margin_bottom</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="ProfileField" parent="TextView.Primary">
+        <item name="android:layout_marginStart">@dimen/profile_margin_start</item>
+        <item name="android:layout_marginEnd">@dimen/profile_margin_end</item>
+        <item name="android:layout_marginTop">@dimen/profile_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/profile_margin_bottom</item>
+    </style>
+
+    <style name="FirstFieldInLine" parent="TextView.Primary">
+        <item name="android:layout_marginStart">@dimen/field_line_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/field_line_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/field_line_margin_bottom</item>
+    </style>
+
+    <style name="SecondFieldInLine" parent="TextView.Primary">
+        <item name="android:layout_marginTop">@dimen/field_line_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/field_line_margin_bottom</item>
+        <item name="android:layout_marginEnd">@dimen/field_line_margin_end</item>
+    </style>
 </resources>

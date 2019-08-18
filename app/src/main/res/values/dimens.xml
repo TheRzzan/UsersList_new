@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Text size -->
+    <dimen name="text_size">15sp</dimen>
+    <dimen name="text_size_secondary">14sp</dimen>
+    <dimen name="text_size_header">17sp</dimen>
+
+    <!-- TextView margin -->
+    <dimen name="header_margin_top">8dp</dimen>
+    <dimen name="header_margin_bottom">4dp</dimen>
+
+    <dimen name="profile_margin_top">4dp</dimen>
+    <dimen name="profile_margin_bottom">4dp</dimen>
+    <dimen name="profile_margin_start">10dp</dimen>
+    <dimen name="profile_margin_end">10dp</dimen>
+
+    <!-- Field line -->
+    <dimen name="field_line_margin_top">4dp</dimen>
+    <dimen name="field_line_margin_bottom">4dp</dimen>
+    <dimen name="field_line_margin_start">10dp</dimen>
+    <dimen name="field_line_margin_end">10dp</dimen>
+</resources>

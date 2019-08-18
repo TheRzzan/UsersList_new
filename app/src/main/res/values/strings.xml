@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">UsersList</string>
+    <string name="app_name">Users list</string>
+
+    <string name="name">Имя: %s</string>
+    <string name="email">Почта:&#160;</string>
+    <string name="active">Активен</string>
+    <string name="age">%d лет</string>
+    <string name="phone">Номер:&#160;</string>
+    <string name="company">Компания: %s</string>
+    <string name="contacts">Контакты пользователя:</string>
+    <string name="address">Адрес: %s</string>
+    <string name="about_user">О себе: %s</string>
+    <string name="eye_color">Цвет глаз:</string>
+    <string name="favourite_fruit">Любимый фрукт:</string>
+    <string name="date_of_registration">Дата регистрации %s</string>
+    <string name="geolocation">Геолокация:&#160;</string>
+    <string name="friends">Друзья:</string>
+    <string name="network_data_load_fail">Не удалось загрузить данные по сети.</string>
 </resources>
