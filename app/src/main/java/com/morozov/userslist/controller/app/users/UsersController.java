@@ -45,7 +45,14 @@ public class UsersController extends Controller<UsersViewModel> {
     private void initialUsers() {
         viewModel().showProgress().setValue(true);
 
-        Single.fromCallable(() -> usersLoader.loadDataFromNet())
+        Single.fromCallable(() -> {
+            List<UserModel> users = usersLoader.loadDataFromSQLite();
+
+            if (users.size() <= 0)
+                return usersLoader.loadDataFromNet();
+            else
+                return users;
+        })
                 .observeOn(mainThread)
                 .subscribeOn(background)
                 .subscribe(new SingleObserver<List<UserModel>>() {

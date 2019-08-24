@@ -13,6 +13,8 @@ public interface DBHelper {
 
     void removeItemWithId(int id);
 
+    void removeAll();
+
     int getCount();
 
     long addUser(UserModel user);

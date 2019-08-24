@@ -60,7 +60,7 @@ public class UserModel implements Serializable {
     @SerializedName("tags")
     @Expose
     private List<String> tags = null;
-    @SerializedName("friendModels")
+    @SerializedName("friends")
     @Expose
     private List<FriendModel> friendModels = null;
     @SerializedName("favoriteFruit")

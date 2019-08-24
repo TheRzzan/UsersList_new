@@ -1,5 +1,6 @@
 package com.morozov.userslist.controller;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LifecycleRegistry;
@@ -58,6 +59,7 @@ public abstract class ControllerActivity<V extends ViewModel, C extends Controll
         }
     }
 
+    @SuppressLint("CheckResult")
     protected void observeClicks(final View view) {
         RxView.clicks(view).flatMap(new Function<Object, ObservableSource<ViewClick>>() {
             @Override

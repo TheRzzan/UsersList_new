@@ -18,11 +18,11 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
 
     private Context mContext;
 
-    public static final String DATABASE_NAME = "users_list.db";
+    public static final String DATABASE_NAME = "UsersList.db";
     private static final int DATABASE_VERSION = 1;
 
     public static abstract class DBHelperItem implements BaseColumns {
-        public static final String TABLE_NAME = "users_list";
+        public static final String TABLE_NAME = "UsersList";
 
         public static final String _ID = BaseColumns._ID;
         public static final String COLUMN_ID = "id";
@@ -48,10 +48,12 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
     private static final String NUMERIC_TYPE = " NUMERIC";
 
     private static final String NOT_NULL = " NOT NULL";
+    public static final String PRIMARY_KEY = " PRIMARY KEY AUTOINCREMENT";
     private static final String COMMA_SEP = ", ";
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + DBHelperItem.TABLE_NAME + " ("
+                    + DBHelperItem._ID + INT_TYPE + PRIMARY_KEY + COMMA_SEP
                     + DBHelperItem.COLUMN_ID + INT_TYPE + NOT_NULL + COMMA_SEP
                     + DBHelperItem.COLUMN_ACTIVE + NUMERIC_TYPE + NOT_NULL + COMMA_SEP
                     + DBHelperItem.COLUMN_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP
@@ -155,6 +157,13 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
         SQLiteDatabase db = getWritableDatabase();
         String[] whereArgs = { String.valueOf(id) };
         db.delete(DBHelperItem.TABLE_NAME, "_ID=?", whereArgs);
+    }
+
+    @Override
+    public void removeAll() {
+        for (int i = 0; i < getCount(); i++) {
+            removeItemWithId(i);
+        }
     }
 
     @Override

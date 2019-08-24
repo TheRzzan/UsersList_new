@@ -17,6 +17,11 @@ public class UsersLoaderImpl extends UsersLoader {
 
     @Override
     public List<UserModel> loadDataFromNet() {
-        return usersByNet.loadUsersFromNet();
+        List<UserModel> users = usersByNet.loadUsersFromNet();
+        dbHelper.removeAll();
+        for (UserModel user : users) {
+            dbHelper.addUser(user);
+        }
+        return users;
     }
 }
