@@ -74,6 +74,31 @@ public class UsersController extends Controller<UsersViewModel> {
                 });
     }
 
+    private void loadUsers() {
+        viewModel().showProgress().setValue(true);
+
+        Single.fromCallable(() -> usersLoader.loadDataFromNet())
+                .observeOn(mainThread)
+                .subscribeOn(background)
+                .subscribe(new SingleObserver<List<UserModel>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        disposable = d;
+                    }
+
+                    @Override
+                    public void onSuccess(List<UserModel> userModels) {
+                        loadSuccess(userModels);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                        loadFailure();
+                    }
+                });
+    }
+
     private void loadSuccess(List<UserModel> users) {
         viewModel().showProgress().setValue(false);
 
@@ -102,6 +127,9 @@ public class UsersController extends Controller<UsersViewModel> {
             switch (viewClick.id()) {
                 case R.id.inline_error_retry:
                     initialUsers();
+                    break;
+                case R.id.fab_refresh:
+                    loadUsers();
                     break;
             }
         };

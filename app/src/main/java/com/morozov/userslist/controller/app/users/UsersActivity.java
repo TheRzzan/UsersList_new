@@ -48,7 +48,7 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-        observeClicks(errorFrame.click());
+        observeClicks(errorFrame.click(), fabRefresh);
     }
 
     @Override
