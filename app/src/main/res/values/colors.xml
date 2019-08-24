@@ -4,6 +4,7 @@
     <color name="colorPrimary">#FF0000</color>
     <color name="colorPrimaryDark">#C80303</color>
     <color name="colorAccent">#FFFF00</color>
+    <color name="line">#BCBBC1</color>
 
     <!-- Adjective -->
     <color name="green">#008000</color>

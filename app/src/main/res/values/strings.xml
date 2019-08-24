@@ -4,6 +4,7 @@
     <string name="name">Имя: %s</string>
     <string name="email">Почта:&#160;</string>
     <string name="active">Активен</string>
+    <string name="not_active">Не активен</string>
     <string name="age">%d лет</string>
     <string name="phone">Номер:&#160;</string>
     <string name="company">Компания: %s</string>
@@ -17,4 +18,7 @@
     <string name="friendModels">Друзья:</string>
     <string name="network_data_load_fail">Не удалось загрузить данные по сети.</string>
     <string name="retry">Обновить</string>
+
+    <string name="app_error_title_generic">Sorry, something went wrong.</string>
+    <string name="app_error_body_generic">Please try again.</string>
 </resources>

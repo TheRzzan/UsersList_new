@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ProgressBar
-        android:id="@+id/cake_activity_progress_bar"
+        android:id="@+id/user_activity_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.morozov.userslist.controller.ui.FrameErrorView
-        android:id="@+id/cake_activity_frame_error"
+        android:id="@+id/user_activity_frame_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
