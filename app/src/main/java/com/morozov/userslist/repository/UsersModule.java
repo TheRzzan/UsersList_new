@@ -6,8 +6,6 @@ import com.morozov.userslist.repository.net.UsersByNet;
 import com.morozov.userslist.repository.net.UsersByNetImpl;
 import com.morozov.userslist.repository.sql.DBHelper;
 import com.morozov.userslist.repository.sql.DBHelperImpl;
-import com.morozov.userslist.repository.user.UsersLoader;
-import com.morozov.userslist.repository.user.UsersLoaderImpl;
 
 import dagger.Module;
 import dagger.Provides;

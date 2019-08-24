@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import com.morozov.userslist.R;
 import com.morozov.userslist.controller.ControllerActivity;
 import com.morozov.userslist.controller.ui.FrameErrorView;
-import com.morozov.userslist.repository.user.UsersLoaderImpl;
+import com.morozov.userslist.repository.user.UsersLoader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,7 +78,7 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
     protected UsersController createController(UsersViewModel viewModel) {
         UsersController usersController = new UsersController(viewModel);
         injector(USER_COMPONENT).inject(usersController);
-        injector(USER_COMPONENT).inject((UsersLoaderImpl) usersController.usersLoader);
+        injector(USER_COMPONENT).inject(usersController.usersLoader);
         return usersController;
     }
 
