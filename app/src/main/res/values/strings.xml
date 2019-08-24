@@ -14,7 +14,7 @@
     <string name="favourite_fruit">Любимый фрукт:</string>
     <string name="date_of_registration">Дата регистрации %s</string>
     <string name="geolocation">Геолокация:&#160;</string>
-    <string name="friends">Друзья:</string>
+    <string name="friendModels">Друзья:</string>
     <string name="network_data_load_fail">Не удалось загрузить данные по сети.</string>
     <string name="retry">Обновить</string>
 </resources>

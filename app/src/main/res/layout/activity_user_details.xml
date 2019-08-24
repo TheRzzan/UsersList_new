@@ -136,7 +136,7 @@
                 android:id="@+id/friendsText"
                 style="@style/HeaderProfileField"
                 android:layout_below="@id/aboutText"
-                android:text="@string/friends" />
+                android:text="@string/friendModels" />
 
             <FrameLayout
                 android:id="@+id/usersFrameLayout"
