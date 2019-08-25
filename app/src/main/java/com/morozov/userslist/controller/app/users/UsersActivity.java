@@ -74,9 +74,10 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
             userListContainer.setVisibility(View.VISIBLE);
         });
 
-        viewModel.selectedUser().observe(this, integer ->
-                AppNavigation.invokeUserDetailsActivity(UsersActivity.this, integer, false)
-        );
+        viewModel.selectedUser().observe(this, integer -> {
+            AppNavigation.getInstance(getApplicationContext()).setCurrentUser(integer);
+            AppNavigation.invokeUserDetailsActivity(UsersActivity.this, integer, true);
+        });
     }
 
     @Override

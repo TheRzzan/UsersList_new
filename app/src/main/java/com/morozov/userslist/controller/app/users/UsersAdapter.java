@@ -15,7 +15,7 @@ public class UsersAdapter extends ListAdapter<UserModel, UsersViewHolder> {
     private final LayoutInflater inflater;
     private final OnUserClickListener listener;
 
-    UsersAdapter(Context context, OnUserClickListener listener) {
+    public UsersAdapter(Context context, OnUserClickListener listener) {
         inflater = LayoutInflater.from(context);
         this.listener = listener;
     }

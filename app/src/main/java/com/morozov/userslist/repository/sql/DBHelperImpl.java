@@ -153,6 +153,11 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
     }
 
     @Override
+    public UserModel getItemById(int userId) {
+        return getItemAt(userId);
+    }
+
+    @Override
     public void removeItemWithId(int id) {
         SQLiteDatabase db = getWritableDatabase();
         String[] whereArgs = { String.valueOf(id) };

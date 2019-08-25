@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.app.users.UsersActivity" />
+        <activity android:name=".controller.app.details.DetailsActivity" />
     </application>
 
 </manifest>

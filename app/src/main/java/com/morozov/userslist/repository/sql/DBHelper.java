@@ -11,6 +11,8 @@ public interface DBHelper {
 
     UserModel getItemAt(int position);
 
+    UserModel getItemById(int userId);
+
     void removeItemWithId(int id);
 
     void removeAll();
