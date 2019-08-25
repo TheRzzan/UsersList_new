@@ -1,7 +1,10 @@
 package com.morozov.userslist.controller.app.users;
 
+import android.util.Log;
+
 import com.morozov.userslist.R;
 import com.morozov.userslist.controller.Controller;
+import com.morozov.userslist.controller.interaction.OnUserClickListener;
 import com.morozov.userslist.controller.interaction.ViewClick;
 import com.morozov.userslist.controller.interaction.model.ErrorModel;
 import com.morozov.userslist.controller.interaction.model.res.StringResData;
@@ -19,7 +22,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class UsersController extends Controller<UsersViewModel> {
+public class UsersController extends Controller<UsersViewModel> implements OnUserClickListener {
     @Inject
     UsersLoader usersLoader;
 
@@ -133,5 +136,10 @@ public class UsersController extends Controller<UsersViewModel> {
                     break;
             }
         };
+    }
+
+    @Override
+    public void onUserClick(Integer personalId) {
+        Log.e(UsersController.class.getSimpleName(), personalId.toString());
     }
 }

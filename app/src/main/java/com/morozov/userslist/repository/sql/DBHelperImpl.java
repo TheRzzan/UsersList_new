@@ -118,7 +118,7 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
         if (cursor.moveToPosition(position)) {
             UserModel user = new UserModel();
 
-            user.setId(cursor.getInt(cursor.getColumnIndex(DBHelperItem._ID)));
+            user.setId(cursor.getInt(cursor.getColumnIndex(DBHelperItem.COLUMN_ID)));
             user.setName(cursor.getString(cursor.getColumnIndex(DBHelperItem.COLUMN_NAME)));
             user.setAge(cursor.getInt(cursor.getColumnIndex(DBHelperItem.COLUMN_AGE)));
             user.setEmail(cursor.getString(cursor.getColumnIndex(DBHelperItem.COLUMN_EMAIL)));
@@ -161,9 +161,7 @@ public class DBHelperImpl extends SQLiteOpenHelper implements DBHelper {
 
     @Override
     public void removeAll() {
-        for (int i = 0; i < getCount(); i++) {
-            removeItemWithId(i);
-        }
+        getWritableDatabase().execSQL("DELETE FROM " + DBHelperItem.TABLE_NAME);
     }
 
     @Override

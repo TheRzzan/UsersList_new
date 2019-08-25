@@ -25,8 +25,8 @@ public abstract class ControllerActivity<V extends ViewModel, C extends Controll
 
     private LifecycleRegistry lifecycleRegistry = new LifecycleRegistry(this);
 
-    private V viewModel;
-    private C controller;
+    protected V viewModel;
+    protected C controller;
 
     @SuppressWarnings("unchecked")
     protected DI injector(String name) {

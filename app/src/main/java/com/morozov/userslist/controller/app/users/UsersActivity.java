@@ -11,7 +11,6 @@ import android.widget.ProgressBar;
 import com.morozov.userslist.R;
 import com.morozov.userslist.controller.ControllerActivity;
 import com.morozov.userslist.controller.ui.FrameErrorView;
-import com.morozov.userslist.repository.user.UsersLoader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +42,7 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
         setContentView(R.layout.activity_users_list);
         ButterKnife.bind(this);
 
-        adapter = new UsersAdapter(getApplicationContext());
+        adapter = new UsersAdapter(getApplicationContext(), controller);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -70,6 +69,7 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
 
         viewModel.users().observe(this, users -> {
             adapter.setData(users);
+            adapter.notifyDataSetChanged();
             userListContainer.setVisibility(View.VISIBLE);
         });
     }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.morozov.userslist.R;
+import com.morozov.userslist.controller.interaction.OnUserClickListener;
 import com.morozov.userslist.models.UserModel;
 
 import butterknife.BindView;
@@ -35,10 +36,14 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    void populate(UserModel user) {
+    void populate(UserModel user, OnUserClickListener listener) {
         name.setText(user.getName());
         email.setText(user.getEmail());
         setIsActive(itemView.getContext(), user.getIsActive());
+        itemView.setOnClickListener(v -> {
+            if (user.getIsActive())
+                listener.onUserClick(user.getId());
+        });
     }
 
     private void setIsActive(Context context, Boolean b) {
