@@ -11,14 +11,12 @@ import java.util.List;
 public class UsersViewModel extends UiViewModel {
     private MutableLiveData<List<UserModel>> users;
     private MutableLiveData<Integer> selectedUser;
-    private MutableLiveData<Boolean> addNew;
 
     private MutableLiveData<ErrorModel> error;
 
     public UsersViewModel() {
         users = new MutableLiveData<>();
         selectedUser= new MutableLiveData<>();
-        addNew= new MutableLiveData<>();
 
         error = new MutableLiveData<>();
     }
@@ -29,10 +27,6 @@ public class UsersViewModel extends UiViewModel {
 
     MutableLiveData<Integer> selectedUser() {
         return  selectedUser;
-    }
-
-    MutableLiveData<Boolean> addNew() {
-        return addNew;
     }
 
     MutableLiveData<ErrorModel> error() {

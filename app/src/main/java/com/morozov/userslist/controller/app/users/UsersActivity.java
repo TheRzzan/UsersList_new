@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import com.morozov.userslist.R;
 import com.morozov.userslist.controller.ControllerActivity;
 import com.morozov.userslist.controller.ui.FrameErrorView;
+import com.morozov.userslist.utility.AppNavigation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,6 +73,10 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
             adapter.notifyDataSetChanged();
             userListContainer.setVisibility(View.VISIBLE);
         });
+
+        viewModel.selectedUser().observe(this, integer ->
+                AppNavigation.invokeUserDetailsActivity(UsersActivity.this, integer, false)
+        );
     }
 
     @Override

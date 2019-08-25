@@ -140,6 +140,6 @@ public class UsersController extends Controller<UsersViewModel> implements OnUse
 
     @Override
     public void onUserClick(Integer personalId) {
-        Log.e(UsersController.class.getSimpleName(), personalId.toString());
+        viewModel().selectedUser().setValue(personalId);
     }
 }
