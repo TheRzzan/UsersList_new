@@ -1,7 +1,9 @@
 package com.morozov.userslist.controller.app.details;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -26,6 +28,8 @@ import com.morozov.userslist.models.FavoriteFruit;
 import com.morozov.userslist.models.UserModel;
 import com.morozov.userslist.utility.AppNavigation;
 import com.morozov.userslist.utility.RegistrationTime;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -79,6 +83,8 @@ public class DetailsActivity extends ControllerActivity<DetailsViewModel, Detail
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+        observeClicks(clickableEmail, clickablePhone, clickableLocation);
     }
 
     @Override
@@ -104,6 +110,46 @@ public class DetailsActivity extends ControllerActivity<DetailsViewModel, Detail
             } else {
                 progressBar.setVisibility(View.GONE);
                 scrollView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        viewModel.gotoEmail().observe(this, b -> {
+            if (b == null || !b)
+                return;
+
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto", viewModel.user().getValue().getEmail(), null));
+
+            if (intent.resolveActivity(Objects.requireNonNull(getApplicationContext()).getPackageManager()) != null) {
+                startActivity(intent);
+                viewModel.gotoEmail().setValue(null);
+            }
+        });
+
+        viewModel.gotoPhone().observe(this, b -> {
+            if (b == null || !b)
+                return;
+
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + viewModel.user().getValue().getPhone()));
+
+            if (intent.resolveActivity(Objects.requireNonNull(getApplicationContext()).getPackageManager()) != null) {
+                startActivity(intent);
+                viewModel.gotoPhone().setValue(null);
+            }
+        });
+
+        viewModel.gotoLocation().observe(this, b -> {
+            if (b == null || !b)
+                return;
+
+            Uri gmmIntentUri = Uri.parse("geo:"
+                    + viewModel.user().getValue().getLatitude() + "," + viewModel.user().getValue().getLongitude());
+            Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+
+            if (intent.resolveActivity(Objects.requireNonNull(getApplicationContext()).getPackageManager()) != null) {
+                startActivity(intent);
+                viewModel.gotoLocation().setValue(null);
             }
         });
     }

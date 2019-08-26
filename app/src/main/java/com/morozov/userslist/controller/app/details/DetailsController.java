@@ -1,7 +1,10 @@
 package com.morozov.userslist.controller.app.details;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 
+import com.morozov.userslist.R;
 import com.morozov.userslist.controller.Controller;
 import com.morozov.userslist.controller.interaction.OnUserClickListener;
 import com.morozov.userslist.controller.interaction.ViewClick;
@@ -131,8 +134,18 @@ public class DetailsController extends Controller<DetailsViewModel> implements O
 
     @Override
     protected Consumer<ViewClick> click() {
-        return viewClick -> {
-
+        return v -> {
+            switch (v.id()) {
+                case R.id.emailClickable:
+                    viewModel().gotoEmail().setValue(true);
+                    break;
+                case R.id.phoneClickable:
+                    viewModel().gotoPhone().setValue(true);
+                    break;
+                case R.id.locationClickable:
+                    viewModel().gotoLocation().setValue(true);
+                    break;
+            }
         };
     }
 
