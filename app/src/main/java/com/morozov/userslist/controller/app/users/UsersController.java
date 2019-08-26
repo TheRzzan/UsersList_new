@@ -1,5 +1,6 @@
 package com.morozov.userslist.controller.app.users;
 
+import android.accounts.NetworkErrorException;
 import android.util.Log;
 
 import com.morozov.userslist.R;
@@ -51,10 +52,14 @@ public class UsersController extends Controller<UsersViewModel> implements OnUse
         Single.fromCallable(() -> {
             List<UserModel> users = usersLoader.loadDataFromSQLite();
 
-            if (users.size() <= 0)
-                return usersLoader.loadDataFromNet();
-            else
+            if (users.size() <= 0) {
+                List<UserModel> userModels = usersLoader.loadDataFromNet();
+                if (userModels == null)
+                    throw new NetworkErrorException("Users did not loaded.");
+                return userModels;
+            } else {
                 return users;
+            }
         })
                 .observeOn(mainThread)
                 .subscribeOn(background)
@@ -80,7 +85,12 @@ public class UsersController extends Controller<UsersViewModel> implements OnUse
     private void loadUsers() {
         viewModel().showProgress().setValue(true);
 
-        Single.fromCallable(() -> usersLoader.loadDataFromNet())
+        Single.fromCallable(() -> {
+            List<UserModel> userModels = usersLoader.loadDataFromNet();
+            if (userModels == null)
+                throw new NetworkErrorException("Users did not loaded.");
+            return userModels;
+        })
                 .observeOn(mainThread)
                 .subscribeOn(background)
                 .subscribe(new SingleObserver<List<UserModel>>() {
@@ -129,7 +139,7 @@ public class UsersController extends Controller<UsersViewModel> implements OnUse
         return viewClick -> {
             switch (viewClick.id()) {
                 case R.id.inline_error_retry:
-                    initialUsers();
+                    loadUsers();
                     break;
                 case R.id.fab_refresh:
                     loadUsers();
