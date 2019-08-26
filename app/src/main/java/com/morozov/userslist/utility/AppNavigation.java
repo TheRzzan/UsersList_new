@@ -7,6 +7,9 @@ import android.content.Intent;
 import com.morozov.userslist.controller.app.details.DetailsActivity;
 import com.morozov.userslist.controller.app.users.UsersActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AppNavigation {
 
     /* For navigation */
@@ -15,6 +18,7 @@ public class AppNavigation {
     private Context context;
 
     private Integer currentUser;
+    private List<Integer> usersStack;
 
     public AppNavigation(Context context) {
         this.context = context;
@@ -38,6 +42,13 @@ public class AppNavigation {
         this.currentUser = currentUser;
     }
 
+    public List<Integer> getUsersStack() {
+        return usersStack;
+    }
+
+    public void setUsersStack(List<Integer> usersStack) {
+        this.usersStack = usersStack;
+    }
 
 
 
@@ -45,17 +56,6 @@ public class AppNavigation {
 
     public static void invokeNewActivity(Activity activity, Class<?> tClass, boolean shouldFinish) {
         Intent intent = new Intent(activity, tClass);
-        activity.startActivity(intent);
-        activity.overridePendingTransition(0, 0);
-        if (shouldFinish) {
-            activity.finish();
-        }
-    }
-
-    public static void invokeUserDetailsActivity(Activity activity, Integer userId, boolean shouldFinish) {
-        Intent intent = new Intent(activity, DetailsActivity.class);
-        intent.putExtra(AppConstants.EXTRA_KEY_USER_ID, userId);
-
         activity.startActivity(intent);
         activity.overridePendingTransition(0, 0);
         if (shouldFinish) {

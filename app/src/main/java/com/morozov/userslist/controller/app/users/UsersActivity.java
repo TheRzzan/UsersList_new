@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import com.morozov.userslist.R;
 import com.morozov.userslist.controller.ControllerActivity;
+import com.morozov.userslist.controller.app.details.DetailsActivity;
 import com.morozov.userslist.controller.ui.FrameErrorView;
 import com.morozov.userslist.utility.AppNavigation;
 
@@ -76,7 +77,7 @@ public class UsersActivity extends ControllerActivity<UsersViewModel, UsersContr
 
         viewModel.selectedUser().observe(this, integer -> {
             AppNavigation.getInstance(getApplicationContext()).setCurrentUser(integer);
-            AppNavigation.invokeUserDetailsActivity(UsersActivity.this, integer, true);
+            AppNavigation.invokeNewActivity(UsersActivity.this, DetailsActivity.class, true);
         });
     }
 

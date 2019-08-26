@@ -29,6 +29,8 @@ import com.morozov.userslist.models.UserModel;
 import com.morozov.userslist.utility.AppNavigation;
 import com.morozov.userslist.utility.RegistrationTime;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -99,8 +101,15 @@ public class DetailsActivity extends ControllerActivity<DetailsViewModel, Detail
         viewModel.user().observe(this, this::showUserInfo);
 
         viewModel.selectedFriend().observe(this, integer -> {
+            if (AppNavigation.getInstance(getApplicationContext()).getUsersStack() == null)
+                AppNavigation.getInstance(getApplicationContext())
+                        .setUsersStack(new ArrayList<>());
+
+            AppNavigation.getInstance(getApplicationContext()).getUsersStack()
+                    .add(AppNavigation.getInstance(getApplicationContext()).getCurrentUser());
+
             AppNavigation.getInstance(getApplicationContext()).setCurrentUser(integer);
-            AppNavigation.invokeUserDetailsActivity(DetailsActivity.this, integer, true);
+            AppNavigation.invokeNewActivity(DetailsActivity.this, DetailsActivity.class, true);
         });
 
         viewModel.showProgress().observe(this, aBoolean -> {
@@ -204,6 +213,20 @@ public class DetailsActivity extends ControllerActivity<DetailsViewModel, Detail
 
     @Override
     public void onBackPressed() {
-        AppNavigation.invokeNewActivity(DetailsActivity.this, UsersActivity.class, true);
+        if (AppNavigation.getInstance(getApplicationContext()).getUsersStack() == null) {
+            AppNavigation.invokeNewActivity(DetailsActivity.this, UsersActivity.class, true);
+        } else {
+            List<Integer> usersStack = AppNavigation.getInstance(getApplicationContext())
+                    .getUsersStack();
+            AppNavigation.getInstance(getApplicationContext())
+                    .setCurrentUser(usersStack.get(usersStack.size() - 1));
+            usersStack.remove(usersStack.size() - 1);
+
+            if (usersStack.size() < 1)
+                AppNavigation.getInstance(getApplicationContext())
+                .setUsersStack(null);
+
+            AppNavigation.invokeNewActivity(DetailsActivity.this, DetailsActivity.class, true);
+        }
     }
 }
